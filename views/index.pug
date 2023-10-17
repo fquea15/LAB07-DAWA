@@ -1,0 +1,31 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Data MongoDB
+        link(rel="stylesheet", href="/css/styles.css")
+        script(src="/js/script.js") 
+    body
+        .container
+            h1 Datos de MongoDB 
+            .user-grid
+                each dat in data 
+                    .user-card 
+                        .profile-image
+                            img(src=`https://via.placeholder.com/100?text=${dat.name[0]}`, alt="Test Profile")
+                        h4= dat.name
+                        p= dat.email
+            h2 Agregar Nuevo Usuario 
+            form(action="/agregar", method="post")
+                .form-group
+                    label(for="name") Nombre:
+                    input(type="text", class="form-control", id="name", name="name" required)
+                .form-group
+                    label(for="email") Email:
+                    input(type="email", class="form-control", id="email", name="email" required)
+                .form-group
+                    label(for="password") Contraseña:
+                    input(type="password", class="form-control", id="password", name="password" required)
+
+                button(type="submit", class="btn btn-primary") Agregar Usuario 
